@@ -1,22 +1,22 @@
 {
     "name": "@next-hooks/base",
-    "version": "0.4.0",
+    "version": "0.4.5",
     "author": {
         "name": "leomerida15",
         "email": "dimasmerida15@gmail.com",
         "url": "https://github.com/leomerida15"
     },
-    "homepage": "https://github.com/leomerida15/next-hooks/tree/%40next-hooks/urls",
+    "homepage": "https://github.com/leomerida15/next-hooks",
     "repository": {
         "type": "git",
-        "url": "https://github.com/leomerida15/next-hooks/tree/%40next-hooks/urls"
+        "url": "https://github.com/leomerida15/next-hooks"
     },
     "bugs": {
         "url": "https://github.com/leomerida15/next-hooks/issues"
     },
     "type": "module",
-    "main": "dist/use-query-params.esm.js",
-    "module": "dist/use-query-params.esm.js",
+    "main": "dist/use-urls.esm.js",
+    "module": "dist/use-urls.esm.js",
     "typings": "dist/index.d.ts",
     "bin": {
         "use-urls": "dist/use-urls.esm.js"
