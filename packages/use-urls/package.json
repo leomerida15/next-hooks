@@ -2,15 +2,16 @@
   "name": "@repo/use-urls",
   "version": "0.3.5",
   "description": "CLI by generate useUrls and Urls functions by SSR",
-  "author": "leomerida15",
+  "author": {
+    "name": "leomerida15",
+    "email": "dimasmerida15@gmail.com",
+    "url": "https://github.com/leomerida15"
+  },
   "type": "module",
   "main": "dist/use-urls.esm.js",
   "module": "dist/use-urls.esm.js",  
   "bin": {
     "use-urls": "dist/use-urls.esm.js"
-  },
-  "exports": {
-    ".": "./dist/use-urls.esm.js"
   },
   "files": [
     "dist/use-urls.esm.js"
