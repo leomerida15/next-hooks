@@ -1,0 +1,70 @@
+{
+  "name": "@repo/use-urls",
+  "version": "0.3.1",
+  "description": "CLI by generate useUrls and Urls functions by SSR",
+  "author": "leomerida15",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/use-query-params.esm.js",  
+  "typings": "dist/index.d.ts",
+  "bin": {
+    "supa": "dist/use-urls.esm.js"
+  },
+  "exports": {
+    ".": "./dist/use-urls.esm.js"
+  },
+  "files": [
+    "dist/use-urls.esm.js"
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^11.1.6",
+    "@tsconfig/recommended": "^1.0.8",
+    "@tsconfig/vite-react": "^3.0.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "dts-cli": "^2.0.5",
+    "husky": "^9.1.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "size-limit": "^11.1.6",
+    "tslib": "^2.8.1",
+    "typescript": "^5.6.3"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "next": "^13"
+  },
+  "engines": {
+    "node": ">=20",
+    "bun": ">=1.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "dts lint"
+    }
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "license": "MIT",
+  "scripts": {
+    "analyze": "size-limit --why",
+    "build": "dts build",
+    "lint": "dts lint",
+    "preparea": "dts build",
+    "size": "size-limit",
+    "start": "dts watch",
+    "test": "dts test --passWithNoTests"
+  },
+  "size-limit": [
+    {
+      "path": "dist/react.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/react.esm.js",
+      "limit": "10 KB"
+    }
+  ]
+
+}

@@ -1,0 +1,41 @@
+name: CI/CD - use-urls
+
+on:
+  push:
+    branches:
+      - use-urls
+
+jobs:
+  build:
+    name: Build, lint, and test on ${{ matrix.os }}
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+      - name: ❇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: 📥 Install dependencies with Bun (with cache)
+        run: bun install --cwd packages/use-urls
+
+      - name: 🛠️ Build supabase-cli
+        run: cd packages/use-urls/ && bun run build && bun add-shebang.js
+
+      - name: 🔄 Change package name
+        run: |
+          jq '.name = "@next-hooks/use-urls"' packages/use-urls/package.json > temp.json
+          mv temp.json packages/use-urls/package.json
+
+      - name: 🚀 Publish to npm
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/use-urls/package.json
