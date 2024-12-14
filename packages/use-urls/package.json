@@ -1,14 +1,13 @@
 {
   "name": "@repo/use-urls",
-  "version": "0.3.1",
+  "version": "0.3.5",
   "description": "CLI by generate useUrls and Urls functions by SSR",
   "author": "leomerida15",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/use-query-params.esm.js",  
-  "typings": "dist/index.d.ts",
+  "main": "dist/use-urls.esm.js",
+  "module": "dist/use-urls.esm.js",  
   "bin": {
-    "supa": "dist/use-urls.esm.js"
+    "use-urls": "dist/use-urls.esm.js"
   },
   "exports": {
     ".": "./dist/use-urls.esm.js"

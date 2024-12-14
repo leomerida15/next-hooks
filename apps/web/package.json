@@ -11,8 +11,8 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@next-hooks/use-urls": "^0.3.1",
     "@repo/ui": "*",
-    "@repo/use-urls": "*",
     "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
