@@ -1,6 +1,6 @@
 {
-    "name": "@next-hooks/use-urls",
-    "version": "0.5.0",
+    "name": "@next-hooks/base",
+    "version": "0.4.5",
     "author": {
         "name": "leomerida15",
         "email": "dimasmerida15@gmail.com",
@@ -46,7 +46,7 @@
     },
     "engines": {
         "node": ">=20",
-        "bun": ">=1"
+        "bun": ">=1.1.0"
     },
     "husky": {
         "hooks": {
