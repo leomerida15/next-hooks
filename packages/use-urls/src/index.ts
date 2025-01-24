@@ -7,14 +7,16 @@ import { getPackageJson } from "./common";
 
 const pkJson = getPackageJson();
 
-const program = new Command();
+const command = new Command();
 
 
-program
+command
+  .version(pkJson.version)
   .name(pkJson.name)
-  .description(pkJson.description)
-  .version(pkJson.version);
+  .description(pkJson.description);
 
-GenerateCommand(program);
+GenerateCommand(command);
 
-program.parse();
+command.help();
+
+command.parse();
