@@ -12,11 +12,9 @@ const command = new Command();
 
 command
   .version(pkJson.version)
-  .name(pkJson.name)
+  .name("use-urls")
   .description(pkJson.description);
 
 GenerateCommand(command);
-
-command.help();
 
 command.parse();
