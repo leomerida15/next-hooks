@@ -1,4 +1,4 @@
 export const indexTemp = `
 export * from './urls.ssr';
-export * from './useUrls';
+export * from './useUrls.hook';
 `;

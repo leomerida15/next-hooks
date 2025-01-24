@@ -26,14 +26,14 @@ export class UrlsBuild {
   }
 
   create() {
-    this.leerCarpetas(this.app_path);
+    this.readFolder(this.app_path);
 
     this.crearObj();
 
     this.createFile();
   }
 
-  leerCarpetas(currentPath: string) {
+  readFolder(currentPath: string) {
     const archivos = readdirSync(currentPath); // Obtener archivos y carpetas de la ruta actual
 
     if (archivos.includes("page.tsx")) {
@@ -48,7 +48,7 @@ export class UrlsBuild {
       const rutaDir = join(currentPath, dir);
       // const stats = statSync(rutaDir);
 
-      this.leerCarpetas(rutaDir);
+      this.readFolder(rutaDir);
     });
   }
 
