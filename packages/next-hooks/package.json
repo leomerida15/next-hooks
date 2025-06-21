@@ -1,6 +1,6 @@
 {
-    "name": "@next-hooks/base",
-    "version": "0.4.5",
+    "name": "@next-hooks/use-urls",
+    "version": "0.6.0",
     "author": {
         "name": "leomerida15",
         "email": "dimasmerida15@gmail.com",

@@ -8,7 +8,7 @@ const program = new Command();
 program
   .name("use-urls")
   .description("CLI by generate useUrls and Urls functions by SSR")
-  .version("0.1.0");
+  .version("0.6.0");
 
 GenerateCommand(program);
 

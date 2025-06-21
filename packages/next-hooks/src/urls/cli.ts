@@ -9,7 +9,7 @@ export class UrlsBuild {
 
   app_path: string;
   output_path: string;
-
+  skip: string[] = [];
   ignore: string[] = [];
 
   urlFormat(url: string) {
@@ -20,10 +20,11 @@ export class UrlsBuild {
       .replace(resolve(this.app_path), "");
   }
 
-  constructor(input: string, output: string, ignore: string[]) {
+  constructor(input: string, output: string, ignore: string[], skip: string[] ) {
     this.app_path = resolve(input); // Ruta del directorio app de Next.js
     this.output_path = resolve(output); // Ruta de la carpeta donde se generarán los archivos de rutas
     this.ignore = ignore;
+    this.skip = skip;
   }
 
   create() {
@@ -45,6 +46,7 @@ export class UrlsBuild {
       (archivo) => !archivo.includes(".") && !this.ignore.includes(archivo)
     );
 
+ 
     folders.map((dir) => {
       const rutaDir = join(currentPath, dir);
       // const stats = statSync(rutaDir);
@@ -70,6 +72,29 @@ export class UrlsBuild {
         }
 
         currentObj = currentObj[key.replace(/\[|\]/g, "")]; // Avanzar al siguiente nivel del objeto
+      }
+    }
+  }
+
+  skipFolders() {
+    for (const skip of this.skip) {
+      const keys = skip.replace(/\[|\]/g, "").split("/");
+      let currentObj = this.obj;
+
+      // Recorrer cada campo y eliminar la estructura del objeto
+      for (const key of keys) {
+        if (currentObj[key]) {
+          if (key === keys.at(-1)) {
+
+            delete currentObj[key]["root"];
+
+            currentObj = { ...currentObj,...currentObj[key] };
+
+            delete currentObj[key];
+          } else {
+            currentObj = currentObj[key];
+          }
+        }
       }
     }
   }
