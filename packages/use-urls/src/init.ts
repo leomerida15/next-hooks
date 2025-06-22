@@ -68,13 +68,13 @@ export const GenerateCommand = (program: Command) => {
           execSync(`mkdir ${baseUrl}`, { stdio: "pipe" });
         }
 
-        const objPath = join(baseUrl, 'index.ts');
+        const objPath = join(baseUrl, "urls.obj.ts");
 
         const urlsBuild = new UrlsBuild("app", baseUrl, ignore)
         
         urlsBuild.create();
           
-        writeFileSync(join(objPath, "urls.obj.ts"), `export const UrlsObj = ${JSON.stringify(urlsBuild.obj)};`);
+        writeFileSync(objPath, `export const UrlsObj = ${JSON.stringify(urlsBuild.obj)};`);
 
       } catch (error) {
         const err = error as Error;
