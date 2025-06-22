@@ -1,6 +1,6 @@
 {
   "name": "@repo/use-urls",
-  "version": "0.8.6",
+  "version": "0.8.8",
   "description": "CLI by generate useUrls and Urls functions by SSR",
   "author": {
     "name": "leomerida15",
