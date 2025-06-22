@@ -32,7 +32,7 @@ export const GenerateCommand = (program: Command) => {
 
         new UrlsBuild("app", urlPath, ignore).create();
 
-        if(str.omit) writeFileSync(hookPath, hookTemp);
+        if(!str.omit) writeFileSync(hookPath, hookTemp);
 
         writeFileSync(indexPath, indexTemp);
       } catch (error) {
