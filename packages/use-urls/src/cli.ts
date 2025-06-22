@@ -1,4 +1,4 @@
-import { readdirSync, writeFileSync } from "node:fs";
+import { readdirSync } from "node:fs";
 import { join, resolve } from "node:path";
 
 export class UrlsBuild {
@@ -29,8 +29,6 @@ export class UrlsBuild {
     this.readFolder(this.app_path);
 
     this.crearObj();
-
-    this.createFile();
   }
 
   readFolder(currentPath: string) {
@@ -73,15 +71,5 @@ export class UrlsBuild {
     }
   }
 
-  createFile() {
-    const content = `
-    import { useMemo } from "react";
-    import { UrlsObj } from "./urls.obj";
-
-    export const Urls = () => UrlsObj;`;
-    const contentobj = `export const UrlsObj = ${JSON.stringify(this.obj)};`;
  
-    writeFileSync(join(this.output_path, "urls.ssr.ts"), content);
-    writeFileSync(join(this.output_path, "urls.obj.ts"), contentobj);
-  }
 }
