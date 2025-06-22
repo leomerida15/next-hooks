@@ -30,16 +30,16 @@ export const GenerateCommand = (program: Command) => {
 
         const indexPath = join(baseUrl, 'index.ts');
 
-        const objPath = join(baseUrl, 'index.ts');
+        const objPath = join(baseUrl, 'urls.obj.ts');
 
-        const ssrPath = join(baseUrl, 'index.ts');
+        const ssrPath = join(baseUrl, 'urls.ssr.ts');
 
         const urlsBuild = new UrlsBuild("app", baseUrl, ignore)
         
         urlsBuild.create();
           
-        writeFileSync(join(objPath, "urls.obj.ts"), `export const UrlsObj = ${JSON.stringify(urlsBuild.obj)};`);
-        writeFileSync(join(ssrPath, "urls.ssr.ts"), SsrTemp);
+        writeFileSync(objPath, `export const UrlsObj = ${JSON.stringify(urlsBuild.obj)};`);
+        writeFileSync(ssrPath, SsrTemp);
         writeFileSync(hookPath, hookTemp);
         writeFileSync(indexPath, indexTemp);
         
