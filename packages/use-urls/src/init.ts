@@ -12,8 +12,10 @@ export const GenerateCommand = (program: Command) => {
     .description("create files")
     .option("-p, --path <char>", "path by save result", ".")
     .option("-i, --ignore <char>", "item,item,item ...", ",")
+    .option("-o, --omit", "omit hook", false)
     .action((str) => {
       try {
+        
         const ignore = str.ignore.split(",");
 
         const baseUrl = join(str.path, "urls");
@@ -30,7 +32,7 @@ export const GenerateCommand = (program: Command) => {
 
         new UrlsBuild("app", urlPath, ignore).create();
 
-        writeFileSync(hookPath, hookTemp);
+        if(str.omit) writeFileSync(hookPath, hookTemp);
 
         writeFileSync(indexPath, indexTemp);
       } catch (error) {
