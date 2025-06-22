@@ -74,8 +74,14 @@ export class UrlsBuild {
   }
 
   createFile() {
-    const content = `export const Urls = () => (${JSON.stringify(this.obj)});`;
+    const content = `
+    import { useMemo } from "react";
+    import { UrlsObj } from "./urls.obj";
 
-    writeFileSync(this.output_path, content);
+    export const Urls = () => UrlsObj;`;
+    const contentobj = `export const UrlsObj = ${JSON.stringify(this.obj)};`;
+ 
+    writeFileSync(join(this.output_path, "urls.ssr.ts"), content);
+    writeFileSync(join(this.output_path, "urls.obj.ts"), contentobj);
   }
 }

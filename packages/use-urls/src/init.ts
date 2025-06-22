@@ -24,15 +24,16 @@ export const GenerateCommand = (program: Command) => {
           execSync(`mkdir ${baseUrl}`, { stdio: "pipe" });
         }
 
-        const urlPath = join(baseUrl, "urls.ssr.ts");
 
         const hookPath = join(baseUrl, "useUrls.hook.ts");
 
         const indexPath = join(baseUrl, 'index.ts');
 
-        new UrlsBuild("app", urlPath, ignore).create();
+        new UrlsBuild("app", baseUrl, ignore).create();
 
-        if(!str.omit) writeFileSync(hookPath, hookTemp);
+        if(!str.omit) 
+          
+        writeFileSync(hookPath, hookTemp);
 
         writeFileSync(indexPath, indexTemp);
       } catch (error) {
